@@ -1,0 +1,274 @@
+.page {
+  width: min(var(--max-content), calc(100% - 32px));
+  margin: 0 auto;
+  padding: 34px 0 70px;
+}
+
+.heroCard {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1.1fr);
+  gap: clamp(28px, 4vw, 52px);
+  align-items: stretch;
+  padding: clamp(28px, 4vw, 46px);
+  color: var(--color-ink);
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #faf8ec 52%,
+    #f0efdd 100%
+  );
+  border: 1px solid rgba(31, 38, 29, 0.08);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+.heroCopy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.heroCopy h1 {
+  margin-bottom: 16px;
+  font-family: 'Baloo 2', sans-serif;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+}
+
+.heroCopy p,
+.foundationCard p,
+.holotropicIntro p,
+.stepCard p,
+.finalCta p {
+  font-family: 'Manrope', sans-serif;
+  font-size: 17px;
+  line-height: 1.72;
+}
+
+.heroCopy p {
+  max-width: 560px;
+  margin-bottom: 26px;
+}
+
+.artworkWrap {
+  min-width: 0;
+}
+
+.artwork {
+  width: 100%;
+  height: 100%;
+  min-height: 390px;
+  max-height: 520px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 26px;
+}
+
+.primaryAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 22px;
+  color: var(--color-ink);
+  background: var(--color-gold);
+  border: 1px solid rgba(31, 38, 29, 0.1);
+  border-radius: var(--radius-control);
+  box-shadow: 0 9px 24px rgba(31, 38, 29, 0.12);
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    transform var(--transition-ui),
+    filter var(--transition-ui);
+}
+
+.greenAction {
+  background: var(--color-green);
+}
+
+.primaryAction:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.02);
+}
+
+.foundationSection {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  padding-top: 24px;
+}
+
+.foundationCard {
+  min-height: 260px;
+}
+
+.foundationCard h2,
+.holotropicIntro h2,
+.finalCta h2 {
+  font-family: 'Baloo 2', sans-serif;
+}
+
+.foundationCard h2 {
+  margin-bottom: 12px;
+  font-size: clamp(1.9rem, 3vw, 2.5rem);
+  line-height: 1;
+}
+
+.foundationCard p {
+  margin-bottom: 0;
+}
+
+.holotropicSection {
+  margin-top: 26px;
+  padding: clamp(28px, 4vw, 42px);
+  background: linear-gradient(
+    135deg,
+    #e6f5f7 0%,
+    #f4fafb 46%,
+    #ffffff 100%
+  );
+  border: 1px solid rgba(31, 38, 29, 0.08);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+.holotropicIntro {
+  max-width: 900px;
+  margin-bottom: 24px;
+}
+
+.holotropicIntro h2 {
+  margin-bottom: 12px;
+  font-size: clamp(2.4rem, 5vw, 4.1rem);
+  line-height: 0.98;
+}
+
+.holotropicIntro p {
+  margin-bottom: 0;
+}
+
+.stepGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.stepCard {
+  min-height: 250px;
+}
+
+.stepCard > span {
+  display: inline-flex;
+  margin-bottom: 30px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  opacity: 0.55;
+}
+
+.stepCard h3 {
+  margin-bottom: 9px;
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.stepCard p {
+  margin-bottom: 0;
+}
+
+.finalCta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  margin-top: 26px;
+  padding: clamp(28px, 4vw, 42px);
+  color: var(--color-ink);
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #faf8ec 52%,
+    #f0efdd 100%
+  );
+  border: 1px solid rgba(31, 38, 29, 0.08);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+.finalCta h2 {
+  margin-bottom: 8px;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1;
+}
+
+.finalCta p {
+  max-width: 720px;
+  margin-bottom: 0;
+}
+
+@media (max-width: 900px) {
+  .heroCard {
+    grid-template-columns: 1fr;
+  }
+
+  .artwork {
+    min-height: 340px;
+    max-height: 480px;
+  }
+
+  .foundationSection {
+    grid-template-columns: 1fr;
+  }
+
+  .foundationCard {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 720px) {
+  .page {
+    width: min(var(--max-content), calc(100% - 20px));
+    padding-top: 20px;
+    padding-bottom: 56px;
+  }
+
+  .heroCard {
+    padding: 20px;
+  }
+
+  .heroCopy h1 {
+    font-size: clamp(3rem, 15vw, 4.5rem);
+  }
+
+  .artwork {
+    min-height: 270px;
+    max-height: 380px;
+    border-radius: 22px;
+  }
+
+  .stepGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .stepCard {
+    min-height: auto;
+  }
+
+  .holotropicSection {
+    padding: 22px;
+  }
+
+  .finalCta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .primaryAction {
+    width: 100%;
+  }
+}

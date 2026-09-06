@@ -1,0 +1,13 @@
+.card {
+  padding: clamp(22px, 4vw, 36px);
+  color: var(--color-ink);
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #f7f5e8 45%,
+    #f0efdd 100%
+  );
+  border: 1px solid rgba(31, 38, 29, 0.08);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}

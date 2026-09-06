@@ -1,0 +1,245 @@
+.panel {
+  width: min(100%, 360px);
+  max-height: calc(100vh - 120px);
+  padding: 26px;
+  overflow-y: auto;
+  color: var(--color-ink);
+  background: linear-gradient(
+    155deg,
+    #ffffff 0%,
+    #f8f7ec 58%,
+    #f0efdd 100%
+  );
+  border: 1px solid rgba(31, 38, 29, 0.08);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  scrollbar-width: thin;
+}
+
+.panelHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.eyebrow {
+  margin: 0 0 3px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  opacity: 0.58;
+}
+
+.panelHeader h2 {
+  margin: 0;
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 2.45rem;
+  line-height: 0.95;
+}
+
+.closeButton,
+.renameButton {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  padding: 0;
+  color: var(--color-ink);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(31, 38, 29, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.closeButton {
+  width: 36px;
+  height: 36px;
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.emptyState {
+  padding: 24px 18px;
+  background: rgba(255, 255, 255, 0.64);
+  border: 1px solid rgba(31, 38, 29, 0.07);
+  border-radius: 20px;
+}
+
+.emptyState p {
+  margin: 0 0 6px;
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.emptyState span {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  opacity: 0.72;
+}
+
+.sessionList {
+  display: grid;
+  gap: 12px;
+}
+
+.sessionCard {
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(31, 38, 29, 0.08);
+  border-radius: 20px;
+}
+
+.sessionHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 8px;
+  align-items: center;
+  padding: 13px 12px 12px 16px;
+  background: linear-gradient(
+    90deg,
+    #e6f5f7 0%,
+    rgba(255, 255, 255, 0.35) 100%
+  );
+}
+
+.sessionToggle {
+  min-width: 0;
+  padding: 0;
+  overflow: hidden;
+  color: var(--color-ink);
+  background: transparent;
+  border: 0;
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.sessionToggle::before {
+  content: '⌄';
+  display: inline-block;
+  margin-right: 7px;
+  font-family: sans-serif;
+  transform: translateY(-1px);
+}
+
+.sessionToggle[aria-expanded='false']::before {
+  transform: rotate(-90deg) translateX(1px);
+}
+
+.sessionDate {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  white-space: nowrap;
+  opacity: 0.62;
+}
+
+.renameButton {
+  width: 28px;
+  height: 28px;
+  font-size: 0.84rem;
+}
+
+.timerRows {
+  display: grid;
+  padding: 4px 14px 10px 34px;
+}
+
+.timerRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(31, 38, 29, 0.07);
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.82rem;
+}
+
+.timerRow:last-child {
+  border-bottom: 0;
+}
+
+.timerRow span {
+  font-weight: 650;
+}
+
+.timerRow time {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  opacity: 0.72;
+}
+
+.renameForm {
+  display: grid;
+  gap: 8px;
+  padding: 12px 14px;
+  border-top: 1px solid rgba(31, 38, 29, 0.06);
+}
+
+.renameForm label {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.renameControls {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 7px;
+}
+
+.renameControls input {
+  width: 100%;
+  min-height: 40px;
+  padding: 0 12px;
+  color: var(--color-ink);
+  background: #ffffff;
+  border: 1px solid rgba(31, 38, 29, 0.12);
+  border-radius: 12px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.84rem;
+  outline: none;
+}
+
+.renameControls input:focus {
+  border-color: var(--color-cyan);
+}
+
+.renameControls button {
+  min-height: 36px;
+  color: var(--color-ink);
+  background: var(--color-cyan);
+  border: 1px solid rgba(31, 38, 29, 0.08);
+  border-radius: var(--radius-control);
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.renameControls button:last-child {
+  background: #ffffff;
+}
+
+.calendarNote {
+  margin: 14px 2px 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.72rem;
+  line-height: 1.45;
+  opacity: 0.62;
+}
+
+@media (max-width: 960px) {
+  .panel {
+    width: min(100%, 760px);
+    max-height: none;
+  }
+}

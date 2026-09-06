@@ -1,0 +1,16 @@
+:root {
+  --color-ink: #1f261d;
+  --color-green: #afd9a3;
+  --color-cream: #f7f2dc;
+  --color-gold: #fdd169;
+  --color-cyan: #20d6e4;
+
+  --radius-card: 28px;
+  --radius-control: 999px;
+
+  --shadow-card: 0 18px 55px rgba(31, 38, 29, 0.12);
+
+  --transition-ui: 220ms ease;
+
+  --max-content: 1180px;
+}

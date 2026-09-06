@@ -1,0 +1,153 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: grid;
+  grid-template-columns: minmax(72px, 1fr) auto minmax(72px, 1fr);
+  align-items: center;
+  width: 100%;
+  min-height: 76px;
+  padding: 12px clamp(18px, 4vw, 64px);
+  border-bottom: 1px solid transparent;
+  background: rgba(240, 239, 221, 0.12);
+  backdrop-filter: blur(8px);
+  transition:
+    background var(--transition-ui),
+    border-color var(--transition-ui),
+    box-shadow var(--transition-ui);
+}
+
+.navbar[data-scrolled='true'] {
+  border-bottom-color: rgba(31, 38, 29, 0.1);
+  background: rgba(240, 239, 221, 0.88);
+  box-shadow: 0 10px 30px rgba(31, 38, 29, 0.08);
+}
+
+.navLinks {
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(20px, 3vw, 42px);
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 1.18rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.navLink {
+  position: relative;
+  color: var(--color-ink);
+  text-decoration: none;
+  transition:
+    color var(--transition-ui),
+    opacity var(--transition-ui);
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  width: 0;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(32, 214, 228, 0) 0%,
+    var(--color-cyan) 50%,
+    rgba(32, 214, 228, 0) 100%
+  );
+  transform: translateX(-50%);
+  transition: width var(--transition-ui);
+}
+
+.navLink:hover::after,
+.activeLink::after {
+  width: 118%;
+}
+
+.brandLeft,
+.brandRight {
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-7px);
+  transition:
+    opacity 320ms ease,
+    transform 320ms ease;
+}
+
+.navbar[data-scrolled='true'] .brandLeft,
+.navbar[data-scrolled='true'] .brandRight {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.brandLeft {
+  grid-column: 1;
+  justify-content: flex-start;
+}
+
+.brandRight {
+  grid-column: 3;
+  justify-content: flex-end;
+}
+
+.brandLeft img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.brandRight img {
+  width: clamp(112px, 10vw, 156px);
+  max-height: 42px;
+  object-fit: contain;
+}
+
+@media (max-width: 720px) {
+  .navbar {
+    grid-template-columns: 44px 1fr 78px;
+    min-height: 68px;
+    padding: 10px 14px;
+  }
+
+  .navLinks {
+    grid-column: 2;
+    gap: 16px;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  .brandLeft img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .brandRight img {
+    width: 72px;
+  }
+}
+
+@media (max-width: 470px) {
+  .navbar {
+    grid-template-columns: 34px 1fr 52px;
+    padding-inline: 10px;
+  }
+
+  .navLinks {
+    gap: 11px;
+    font-size: 0.9rem;
+  }
+
+  .brandLeft img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .brandRight img {
+    width: 50px;
+  }
+}
