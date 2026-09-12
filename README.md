@@ -23,6 +23,7 @@ Il progetto unisce un timer programmabile, cronologia locale, soundscape YouTube
 - selezione rapida del sound e controllo Loop
 - sezione Learn dedicata alla meditazione e alla preparazione consapevole alla respirazione olotropica
 - navigazione Home, Meditate e Learn con React Router
+- caricamento lazy delle route Home, Meditate e Learn
 - layout responsive per desktop, tablet e mobile
 
 ## Tecnologie
@@ -34,6 +35,14 @@ Il progetto unisce un timer programmabile, cronologia locale, soundscape YouTube
 - Testing Library
 - CSS Modules
 - Firebase Hosting
+
+## Qualità e robustezza
+
+- 48 test distribuiti in 15 file di test
+- gestione degli errori di scrittura su `localStorage`
+- `ErrorBoundary` per mantenere disponibile la navigazione in caso di errore di una route
+- lazy loading delle pagine con `React.lazy` e `Suspense`
+- metadata Open Graph, `theme-color` e social preview dedicata
 
 ## Avvio locale
 

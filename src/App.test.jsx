@@ -12,25 +12,30 @@ function renderAt(path) {
 }
 
 describe('App routes', () => {
-  it('renders Home at /', () => {
-    renderAt('/');
-    expect(
-      screen.getByRole('heading', { name: /lucy\/\/roots/i }),
-    ).toBeInTheDocument();
+  it('renders Home at /', async () => {
+  renderAt('/');
+
+  expect(
+    await screen.findByRole('heading', { name: /lucy\/\/roots/i }),
+  ).toBeInTheDocument();
   });
 
-  it('renders Meditate at /meditate', () => {
-    renderAt('/meditate');
-    expect(
-      screen.getByRole('heading', { name: /medita/i }),
-    ).toBeInTheDocument();
+  it('renders Meditate at /meditate', async () => {
+  renderAt('/meditate');
+
+  expect(
+    await screen.findByRole('heading', { name: /medita/i }),
+  ).toBeInTheDocument();
   });
 
-  it('renders Learn at /learn', () => {
-    renderAt('/learn');
-    expect(
-      screen.getByRole('heading', { name: /imparare a meditare/i }),
-    ).toBeInTheDocument();
+  it('renders Learn at /learn', async () => {
+  renderAt('/learn');
+
+  expect(
+    await screen.findByRole('heading', {
+      name: /imparare a meditare/i,
+    }),
+  ).toBeInTheDocument();
   });
 });
 

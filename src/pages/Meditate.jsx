@@ -37,10 +37,14 @@ function loadHistory() {
 }
 
 function persistHistory(history) {
-  window.localStorage.setItem(
-    HISTORY_STORAGE_KEY,
-    JSON.stringify(history),
-  );
+  try {
+    window.localStorage.setItem(
+      HISTORY_STORAGE_KEY,
+      JSON.stringify(history),
+    );
+  } catch {
+    // The session still completes if storage is unavailable.
+  }
 }
 
 function Meditate() {

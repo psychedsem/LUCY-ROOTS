@@ -34,8 +34,9 @@ describe('Meditate history panel', () => {
   });
 
   afterEach(() => {
-    window.localStorage.clear();
-    vi.useRealTimers();
+  vi.restoreAllMocks();
+  window.localStorage.clear();
+  vi.useRealTimers();
   });
 
   it('opens a right-side history panel and shows stored sessions as an accordion', () => {
@@ -188,6 +189,35 @@ describe('Meditate history panel', () => {
     );
 
     expect(screen.getByText(/timer 1/i)).toBeInTheDocument();
+  });
+  
+  it('completes the session even when localStorage cannot persist history', () => {
+  vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+    throw new DOMException('Storage unavailable', 'QuotaExceededError');
+  });
+
+  renderMeditate();
+
+  fireEvent.change(
+    screen.getByLabelText(/durata personalizzata/i),
+    { target: { value: '1' } },
+  );
+
+  fireEvent.click(
+    screen.getByRole('button', { name: /usa durata/i }),
+  );
+
+  fireEvent.click(
+    screen.getByRole('button', { name: /^inizia$/i }),
+  );
+
+  act(() => {
+    vi.advanceTimersByTime(60_000);
+  });
+
+  expect(
+    screen.getByRole('heading', { name: /sessione completata/i }),
+  ).toBeInTheDocument();
   });
 
   it('does not store a timer that is reset before completion', () => {
